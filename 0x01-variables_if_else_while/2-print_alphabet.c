@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <stdio.h>
+
 /**
  * main - Entry point
  *
@@ -9,18 +10,13 @@
 int main(void)
 {
 	char alphabet;
-	char lowercase;
 
-	scanf("%c", &alphabet);
-	if (alphabet >= 65 && alphabet <= 132)
+	alphabet = 'a';
+	while (alphabet <= 'z')
 	{
-		lowercase = alphabet + 32;
-		putchar(lowercase);
+		putchar(alphabet);
+		alphabet++;
 	}
-	else
-	{
-		putchar(lowercase);
-	}
-		putchar('\n');
+	putchar('\n');
 	return (0);
 }
