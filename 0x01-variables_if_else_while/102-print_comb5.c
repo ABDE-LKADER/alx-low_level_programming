@@ -9,41 +9,28 @@
 
 int main(void)
 {
-	int A;
-	int B;
-	int C;
-	int D;
+	int First;
+	int Second;
 
-	A = 0;
-	while (A <= 9)
+	First = 0;
+	while (First < 99)
 	{
-		B = 0;
-		while (B <= 8)
+		Second = First + 1;
+		while (Second <= 99)
 		{
-			C = 0;
-			while (C <= 9)
+			putchar(First / 10 + '0');
+			putchar(First % 10 + '0');
+			putchar(' ');
+			putchar(Second / 10 + '0');
+			putchar(Second % 10 + '0');
+			if (First != 98)
 			{
-				D = 1;
-				while (D <= 9)
-				{
-					putchar(A + '0');
-					putchar(B + '0');
-					putchar(' ');
-					putchar(C + '0');
-					putchar(D + '0');
-					if (A < 9 || B < 8 || C < 9 || D < 9)
-					{
-						putchar(',');
-						putchar(' ');
-					}
-					D++;
-				}
-				C++;
+				putchar(',');
+				putchar(' ');
 			}
-			B++;
+			Second++;
 		}
-		A++;
-
+		First++;
 	}
 	putchar('\n');
 	return (0);
