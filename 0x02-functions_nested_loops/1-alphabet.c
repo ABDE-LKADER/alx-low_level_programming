@@ -1,5 +1,4 @@
-#include <unistd.h>
-
+#include "main.h"
 /**
  * print_alphabet -> for print lowercase alphabet
  */
