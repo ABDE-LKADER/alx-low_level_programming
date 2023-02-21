@@ -1,5 +1,9 @@
 #include <unistd.h>
 
+/**
+ * print_alphabet -> for print lowercase alphabet
+ */
+
 void print_alphabet(void)
 {
 	char Start;
@@ -7,8 +11,8 @@ void print_alphabet(void)
 	Start = 'a';
 	while (Start <= 'z')
 	{
-		write(1, &Start,1);
+		_putchar(Start);
 		Start++;
 	}
-	write(1, "\n",1);
+	_putchar('\n');
 }
