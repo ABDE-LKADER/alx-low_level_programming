@@ -5,24 +5,16 @@
  *
  * @n: print_last_digit input
  *
- * Return: Always n (Success)
+ * Return: Always a (Success)
  */
 
 int print_last_digit(int n)
 {
-	if (n < 0 && n != -2147483648)
-	{
-		n *= -1;
-		n %= 10;
-		_putchar(n + '0');
-	}
-	else if (n >= 0)
-	{
-		n %= 10;
-		 _putchar(n + '0');
-	}
-	else
-		 _putchar('8');
+	int a;
 
-	return (n);
+	if (n < 0)
+		n = -n;
+	a = n % 10;
+	 _putchar(a + '0');
+	 return (a);
 }
