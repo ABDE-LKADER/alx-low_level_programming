@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
+#include "main.h"
 
 /**
  * main - Entry point
@@ -16,8 +14,9 @@ int main(void)
 	i = 0;
 	while (i <= 7)
 	{
-		putchar(write[i]);
+		_putchar(write[i]);
 		i++;
 	}
+	_putchar('\n');
 	return (0);
 }
