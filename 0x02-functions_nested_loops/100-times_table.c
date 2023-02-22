@@ -7,14 +7,14 @@
 
 void print_times_table(int n)
 {
-	int a;
-	int b;
+	int a, b;
 
 	if (n <= 15 && n >= 0)
 	{
 		for (a = 0; a <= n; a++)
 		{
 			_putchar('0');
+			_putchar(',');
 			for (b = 1; b <= n; b++)
 			{
 				if (a * b <= 9)
