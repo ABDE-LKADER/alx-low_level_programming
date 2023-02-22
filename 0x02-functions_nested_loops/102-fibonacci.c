@@ -8,19 +8,24 @@
 
 int main(void)
 {
-	long int a, b, c, sum;
+	int i;
+	unsigned long f1, f2, sum;
 
-	b = 1;
-	c = 2;
-	for (a = 1; a <= 50; a++)
+	f1 = 0;
+	f2 = 1;
+	for (i = 0; i < 50; i++)
 	{
-		if (b != 20365011074)
-			printf("%ld, ", b);
+		sum = f1 + f2;
+		printf("%lu", sum);
+
+		f1 = f2;
+		f2 = sum;
+
+		if (count == 49)
+			printf("\n");
 		else
-			printf("%ld\n", b);
-		sum = b + c;
-		b = c;
-		c = sum;
+			printf(", ");
 	}
+
 	return (0);
 }
