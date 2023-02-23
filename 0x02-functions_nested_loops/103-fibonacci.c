@@ -8,19 +8,24 @@
 
 int main(void)
 {
-	long int a, b, c, sum, T;
+	int i;
+	unsigned long f1, f2, sum;
 
-	b = 1;
-	c = 2;
-	sum = 0;
-	for (a = 1; a <= 33; a++)
+	f1 = 0;
+	f2 = 1;
+	for (i = 0; i < 50; i++)
 	{
-		if (b < 4000000 && b % 2 == 0)
-			sum += b;
-		T = b + c;
-		b = c;
-		c = sum;
+		sum = f1 + f2;
+		printf("%lu", sum);
+
+		f1 = f2;
+		f2 = sum;
+
+		if (i == 49)
+			printf("\n");
+		else
+			printf(", ");
 	}
-	printf("%ld\n", b);
+
 	return (0);
 }
