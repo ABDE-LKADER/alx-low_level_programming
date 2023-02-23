@@ -10,7 +10,6 @@ int main(void)
 {
 	long int n;
 	long int d;
-	long int total;
 
 	d = 2;
 	n = 612852475143;
@@ -19,10 +18,9 @@ int main(void)
 		if (n % d == 0)
 		{
 			n /= d;
-			total = d;
 		}
 		d++;
 	}
-	printf("%ld\n", total);
+	printf("%ld\n", d);
 	return (0);
 }
