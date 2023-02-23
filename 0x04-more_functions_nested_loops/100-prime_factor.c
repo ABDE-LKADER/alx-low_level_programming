@@ -23,6 +23,6 @@ int main(void)
 		}
 		d++;
 	}
-	printf("%ld\n", d);
+	printf("%ld\n", factor);
 	return (0);
 }
