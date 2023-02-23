@@ -1,26 +1,28 @@
 #include <stdio.h>
 
 /**
- * main -> The prime factors
+ * main - The prime factors
  *
- * Return: Always 0 
+ * Return: Always 0
  */
 
 int main(void)
 {
-	long int number;
-	long int div;
+	long int n;
+	long int d;
+	long int total;
 
-	div = 2;
-	number = 612852475143;
-	while (number != 0)
+	d = 2;
+	n = 612852475143;
+	while (n != 1)
 	{
-		if (number % div == 0)
+		if (n % d == 0)
 		{
-			number /= div;
+			n = n / d;
+			total = d;
 		}
-		div++;
+		d += 1;
 	}
-	printf("%ld\n", div);
+	printf("%ld\n", total);
 	return (0);
 }
