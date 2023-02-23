@@ -2,6 +2,8 @@
 
 /**
  * print_line -> Draws a straight line in the terminal
+ *
+ * @n: Input
  */
 
 void print_line(int n)
