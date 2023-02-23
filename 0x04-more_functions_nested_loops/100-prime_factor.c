@@ -10,6 +10,7 @@ int main(void)
 {
 	long int n;
 	long int d;
+	long int factor;
 
 	d = 2;
 	n = 612852475143;
@@ -18,6 +19,7 @@ int main(void)
 		if (n % d == 0)
 		{
 			n /= d;
+			factor = d;
 		}
 		d++;
 	}
