@@ -11,13 +11,15 @@ int main(void)
 	long int number;
 	long int div;
 
+	div = 3;
 	number = 612852475143;
-	for(div = 2; div != 1; div++)
+	while (div <= number)
 	{
-		if (number % div == 0)
+		while (number % div == 0 && number != div)
 		{
 			number /= div;
 		}
+		div++;
 	}
 	printf("%ld\n", number);
 	return (0);
