@@ -18,7 +18,7 @@ int main(void)
 	{
 		if (n % d == 0)
 		{
-			n = n / d;
+			n /= d;
 			total = d;
 		}
 		d += 1;
