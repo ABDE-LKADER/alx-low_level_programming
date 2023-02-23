@@ -21,7 +21,7 @@ int main(void)
 			n /= d;
 			total = d;
 		}
-		d += 1;
+		d++;
 	}
 	printf("%ld\n", total);
 	return (0);
