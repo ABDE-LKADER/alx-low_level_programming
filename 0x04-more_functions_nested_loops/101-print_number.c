@@ -17,10 +17,10 @@ void print_number(int n)
 	else if (n < 0)
 	{
 		_putchar('-');
-		n *= -1;
+		n = -n;
 		print_number(n);
 	}
-	else  if (n >= 10)
+	else  if (n > 9)
 	{
 		print_number(n / 10);
 		print_number(n % 10);
