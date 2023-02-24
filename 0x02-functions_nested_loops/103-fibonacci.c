@@ -8,24 +8,17 @@
 
 int main(void)
 {
-	int i;
-	unsigned long f1, f2, sum;
+	int a = 0, b = 1, next = 0;
+	int sum = 0;
 
-	f1 = 0;
-	f2 = 1;
-	for (i = 0; i < 50; i++)
+	while (next < 4000000)
 	{
-		sum = f1 + f2;
-		printf("%lu", sum);
-
-		f1 = f2;
-		f2 = sum;
-
-		if (i == 49)
-			printf("\n");
-		else
-			printf(", ");
+		next = a + b;
+		a = b;
+		b = next;
+		if (next % 2 == 0)
+			sum += next;
 	}
-
+	printf("%i\n", sum);
 	return (0);
 }
