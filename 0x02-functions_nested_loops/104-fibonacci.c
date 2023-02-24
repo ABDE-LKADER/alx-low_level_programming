@@ -8,24 +8,31 @@
 
 int main(void)
 {
-	int i;
-	unsigned long f1, f2, sum;
+	unsigned long int i, j, k, o, a, b, x, y;
 
-	f1 = 0;
-	f2 = 1;
-	for (i = 0; i < 50; i++)
+	j = 1;
+	k = 2;
+	y = 1000000000;
+	printf("%lu", j);
+	for (i = 1; i < 91; i++)
 	{
-		sum = f1 + f2;
-		printf("%lu", sum);
-
-		f1 = f2;
-		f2 = sum;
-
-		if (i == 49)
-			printf("\n");
-		else
-			printf(", ");
+		printf(", %lu", k);
+		k = k + j;
+		j = k - j;
 	}
-
+	o = j / y;
+	a = j % y;
+	b = k / y;
+	x = k % y;
+	for (i = 92; i < 99; ++i)
+	{
+		printf(", %lu", b + (x / y));
+		printf("%lu", x % y);
+		b += o;
+		o = b - o;
+		x += a;
+		a = x - a;
+	}
+	printf("\n");
 	return (0);
 }
