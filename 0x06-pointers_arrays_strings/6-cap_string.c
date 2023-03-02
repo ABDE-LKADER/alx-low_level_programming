@@ -22,11 +22,11 @@ char *cap_string(char *str)
 
 		for (j = 0; j < 13; j++)
 		{
-			if (str[i] == wsp[j])
+			if (str[i - 1] == wsp[j - 1])
 			{
-				if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
+				if (str[i] >= 'a' && str[i] <= 'z')
 				{
-					str[i + 1] -= 32;
+					str[i] -= 32;
 				}
 			}
 		}
