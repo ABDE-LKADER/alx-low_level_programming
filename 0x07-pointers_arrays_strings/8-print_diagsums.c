@@ -3,7 +3,7 @@
 
 /**
  * print_diagsums -> Prints the sum of the two diagonals
- * 
+ *
  * @a: Input String
  * @size: Input Size
  */
