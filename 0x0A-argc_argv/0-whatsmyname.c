@@ -9,17 +9,8 @@
  * Return: 0 Always
  */
 
-int main (int argc, char **argv)
+int main (int argc __attribute__((unused)), char **argv)
 {
-	int i;
-
-	i = 0;
-	argc = 0;
-	while(argv[argc][i] != '\0')
-	{
-		printf("%c", argv[argc][i]);
-		i++;
-	}
-	printf("\n");
+	printf("%s\n", *argv);
 	return (0);
 }
