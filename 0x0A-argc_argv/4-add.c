@@ -43,10 +43,10 @@ int main(int argc, char **argv)
 {
 	int i;
 	int j;
+	int o;
+	int num;
 	int add;
 
-	if (argc == 1)
-		return (0);
 	for (i = 1; i < argc; i++)
 	{
 		for (j = 0; argv[i][j] != '\0'; j++)
@@ -57,12 +57,13 @@ int main(int argc, char **argv)
 				return (1);
 			}
 		}
-		for (j = 1; j < argc; j++)
-		{
-			add = _atoi(argv[j]);
-			if (add >= 0)
-				add += add;
-		}
+	}
+	add = 0;
+	for (o = 1; o < argc; o++)
+	{
+		num = _atoi(argv[o]);
+		if (num >= 0)
+			add += num;
 	}
 	printf("%d\n", add);
 	return (0);
