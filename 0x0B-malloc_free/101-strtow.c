@@ -11,11 +11,10 @@
 
 int _words(char *str)
 {
-	int i;
-	int j;
-	int si;
+	int i, j, si;
 
 	j = 0;
+	si = 0;
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] == ' ')
@@ -33,21 +32,17 @@ int _words(char *str)
  * **strtow -> Splits a string into words
  *
  * @str: Input String
+ *
+ * Return: Depend Condition
  */
 
 char **strtow(char *str)
 {
 	char **new;
 	char *res;
-	int i;
-	int j;
-	int k;
-	int End;
-	int Start;
-	int len;
-	int words;
+	int i, j, k, End, Start, len, words;
 
-	for (len = 0; str[len] != '\0'; len ++)
+	for (len = 0; str[len] != '\0'; len++)
 		;
 	words = _words(str);
 	if (words == 0)
