@@ -47,8 +47,7 @@ char **strtow(char *str)
 	words = _words(str);
 	if (words == 0)
 		return (NULL);
-
-	new = (char **) malloc(words + 1 * sizeof(char *));
+	new = (char **) malloc((words + 1) * sizeof(char *));
 	if (new == NULL)
 		return (NULL);
 	k = 0;
@@ -59,16 +58,16 @@ char **strtow(char *str)
 		{
 			if (j)
 			{
-			End = i;
-			res = (char *) malloc(j + 1 * sizeof(char));
-			if (res == NULL)
-				return (NULL);
-			while (Start < End)
-				*res++ = str[Start++];
-			*res = '\0';
-			new[k] = res - j;
-			k++;
-			j = 0;
+				End = i;
+				res = (char *) malloc((j + 1) * sizeof(char));
+				if (res == NULL)
+					return (NULL);
+				while (Start < End)
+					*res++ = str[Start++];
+				*res = '\0';
+				new[k] = res - j;
+				k++;
+				j = 0;
 			}
 		}
 		else if (j++ == 0)
