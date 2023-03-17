@@ -5,6 +5,8 @@
  * *malloc_checked -> Allocates memory using malloc
  *
  * @b: Input
+ *
+ * Return: Void Pointer
  */
 
 void *malloc_checked(unsigned int b)
