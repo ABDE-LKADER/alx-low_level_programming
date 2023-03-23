@@ -1,6 +1,0 @@
-#ifndef ABDELKADER_H
-#define ABDELKADER_H
-
-int sum_them_all(const unsigned int n, ...);
-
-#endif
