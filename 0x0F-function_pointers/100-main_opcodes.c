@@ -2,48 +2,49 @@
 #include <stdio.h>
 
 /**
- * print_opcodes - print the opcodes of this program
- * @a: address of the main function
- * @n: number of bytes to print
+ * op_codes -> Print the opcodes
  *
- * Return: void
+ * @a: Input Address
+ * @n: Bytes Number
  */
-void print_opcodes(char *a, int n)
-{
-int i;
 
-for (i = 0; i < n; i++)
+void op_codes(char *a, int n)
 {
-printf("%.2hhx", a[i]);
-if (i < n - 1)
-printf(" ");
-}
-printf("\n");
-
+	int i;
+	
+	for (i = 0; i < n; i++)
+	{
+		printf("%.2hhx", a[i]);
+		if (i < n - 1)
+			printf(" ");
+	}
+	printf("\n");
 }
 
 /**
- * main - prints the opcodes of its own main function
- * @argc: argument count
- * @argv: argument vector
+ * main - Prints the opcodes of its own main function
  *
- * Return: O
+ * @ac: Input Arg
+ * @av: Input String
+ *
+ * Return: Always 0
  */
-int main(int argc, char **argv)
-{
-int a;
 
-if (argc != 2)
+int main(int ac, char **av)
 {
-printf("Error\n");
-exit(1);
-}
-a = atoi(argv[1]);
-if (a < 0)
-{
-printf("Error\n");
-exit(2);
-}
-print_opcodes((char *)&main, a);
-return (0);
+	int x;
+	
+	if (ac != 2)
+	{
+		printf("Error\n");
+		exit(1);
+	}
+	x = atoi(av[1]);
+	if (x < 0)
+	{
+		printf("Error\n");
+		exit(2);
+	}
+	op_codes((char *) &main, x);
+	return (0);
 }
