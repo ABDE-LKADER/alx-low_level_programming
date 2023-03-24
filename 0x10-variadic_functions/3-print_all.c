@@ -3,55 +3,55 @@
 #include "variadic_functions.h"
 
 /**
-* print_c - Prints a char
+* print_char - Prints a char
 * @arg: Args List
 */
 
 void print_char(va_list arg)
 {
 	char alpha;
-	
+
 	alpha = va_arg(arg, int);
 	printf("%c", alpha);
 }
 
 /**
-* print_i - Prints an int.
+* print_int - Prints an int.
 * @arg: Args List
 */
 
 void print_int(va_list arg)
 {
 	int num;
+
 	num = va_arg(arg, int);
 	printf("%d", num);
 }
 
 
 /**
-* print_f - Prints a float.
+* print_float - Prints a float.
 * @arg: Args List
 */
 
 void print_float(va_list arg)
 {
 	float digit;
-	
+
 	digit = va_arg(arg, double);
 	printf("%f", digit);
 }
 
 /**
-* print_s - Prints a string.
+* print_string - Prints a string.
 * @arg: Args List
 */
 
 void print_string(va_list arg)
 {
 	char *str;
-	
+
 	str = va_arg(arg, char *);
-	
 	if (str != NULL)
 	{
 		printf("%s", str);
@@ -68,7 +68,7 @@ void print_string(va_list arg)
 void print_all(const char * const format, ...)
 {
 	int i, j;
-	char *separator;
+	char *separator = "";
 	va_list list;
 
 	to_string funcs[] = {
@@ -89,8 +89,8 @@ void print_all(const char * const format, ...)
 			funcs[j].print(list);
 			separator = ", ";
 		}
-
+		i++;
+	}
 	printf("\n");
 	va_end(list);
-	}
 }
