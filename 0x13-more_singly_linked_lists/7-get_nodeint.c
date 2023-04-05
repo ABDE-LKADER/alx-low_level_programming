@@ -2,10 +2,10 @@
 
 /**
  * get_nodeint_at_index -> Returns the nth node of a listint_t linked list.
- * 
+ *
  * @head: Input list
  * @index: Index Node
- * 
+ *
  * Return: Node
 */
 
