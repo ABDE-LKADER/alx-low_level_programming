@@ -15,10 +15,14 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 	for (i = 63; i >= 0; i--)
 	{
-		num = get_bit(n, i);
-		if (num == 1)
-			n = 1;
-		if (n == 1)
-			_putchar(num + '0');
+		num = n >> i;
+
+		if (num & 1)
+		{
+			_putchar('1');
+			n++;
+		}
+		else if (n)
+			_putchar('0');
 	}
 }
