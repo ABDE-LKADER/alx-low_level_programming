@@ -2,9 +2,9 @@
 
 /**
  * binary_to_uint -> Converts a binary number to unsigned int
- * 
+ *
  * @b: Input String Binary
- * 
+ *
  * Return: Depending Condition
 */
 
