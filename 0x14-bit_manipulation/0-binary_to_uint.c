@@ -2,15 +2,15 @@
 
 /**
  * binary_to_uint -> Converts a binary number to unsigned int
- * 
+ *
  * @b: Input String Binary
- * 
+ *
  * Return: Depending Condition
 */
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int i, num;
+	unsigned int i, num = 0;
 
 	if (b == NULL)
 		return (0);
