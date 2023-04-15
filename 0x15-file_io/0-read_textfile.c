@@ -1,38 +1,42 @@
 #include "main.h"
+
 /**
- * read_textfile - reads a text file and prints it to the standard output
- * @filename: name of the file to be read
- * @letters: number of letters to read and print
- * Return: the number of letters printed, or 0 if it failed
- */
+ * read_textfile - Reads a text file and prints it to the POSIX standard output
+ *
+ * @filename: Input Name File
+ * @letters: Input Number
+ *
+ * Return: Depend Condition
+*/
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd;
-	int i, y;
-	char *buf;
+	int f_op, f_rd, f_wr;
+	char *buffer;
 
-	if (!filename)
+	if (filename == NULL)
 		return (0);
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
+
+	f_op = open(filename, O_RDONLY);
+	if (f_op < 0)
 		return (0);
-	buf = malloc(sizeof(char) * letters);
-	if (!buf)
+	buffer = (char *) malloc(letters * sizeof(char));
+	if (buffer == NULL)
 		return (0);
-	i = read(fd, buf, letters);
-	if (i < 0)
+	f_rd = read(f_op, buffer, letters);
+	if (f_rd < 0)
 	{
-		free(buf);
+		free(buffer);
 		return (0);
 	}
-	buf[i] = '\0';
-	close(fd);
-	y = write(STDOUT_FILENO, buf, i);
-	if (y < 0)
+	buffer[f_rd] = '\0';
+	f_wr = write(STDOUT_FILENO, buffer, f_rd);
+	if (f_wr < 0)
 	{
-		free(buf);
+		free(buffer);
 		return (0);
 	}
-	free(buf);
-	return (y);
+	free(buffer);
+	close(f_op);
+	return (f_wr);
 }
