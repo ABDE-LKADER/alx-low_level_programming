@@ -6,20 +6,15 @@
  * Return: Always 0
  */
 
-int main(int argc, char *argv[])
+int main(void)
 {
 	int fd;
 	ssize_t nletters;
 	char *filename;
 	char *text_content;
 
-	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
-	filename = argv[1];
-	text_content = argv[2];
+	filename = "test_0.txt";
+	text_content = "Holberton School!\n";
 	nletters = 0;
 	printf("-> %s file created\n", filename);
 	fd = create_file(filename, text_content);
