@@ -3,139 +3,84 @@
 #include <time.h>
 
 /**
- * find_first -> Finds the biggest number
- * @array: Int Array
- * @size: Array Size
- * Return: Biggest Number
+ * find -> Finds the biggest number
+ * @a: array
+ * @n: Array Size
+ * Return: biggest number
  */
 
-int find_first(int *array, int size)
+int find(int *a, int n)
 {
-	int i, first = 0;
+	int i, big;
 
-	for (i = 0; i < size; i++)
+	big = a[0];
+	for (i = 1; i < n; i++)
 	{
-		if (array[i] > first)
-			first = array[i];
+		if (a[i] > big)
+			big = a[i];
 	}
-	return (first);
+	return (big);
 }
 
 /**
- * find_second -> Finds the second biggest number
- * @array: Int Array
- * @size: Array Size
- * Return: Second Biggest Number
+ * mult_char -> Multiplies each char of username
+ * @usr: Username
+ * @len: Username length
+ * Return: Multiplied username
  */
 
-int find_second(int *array, int size)
+int mult_char(char *usr, int len)
 {
-	int i, first = 0, second = 0;
+	int i, mult;
 
-	for (i = 0; i < size; i++)
-	{
-		if (array[i] > first)
-		{
-			second = first;
-			first = array[i];
-		}
-		else if (array[i] > second && array[i] != first)
-			second = array[i];
-	}
-	return (second);
+	mult = 1;
+	for (i = 0; i < len; i++)
+		mult *= usr[i];
+	return (mult);
 }
 
 /**
- * find_third -> Finds the third biggest number
- * @array: Int Array
- * @size: Array Size
- * Return: Third Biggest Number
+ * gen_pass -> Generates a random char
+ * @usr: Username
+ * Return: Random char
  */
 
-int find_third(int *array, int size)
+int gen_pass(char *usr)
 {
-	int i, first = 0, second = 0, third = 0;
+	int i, len, mult, big, seed, key;
+	int arr[4];
 
-	for (i = 0; i < size; i++)
-	{
-		if (array[i] > first)
-		{
-			third = second;
-			second = first;
-			first = array[i];
-		}
-		else if (array[i] > second && array[i] != first)
-		{
-			third = second;
-			second = array[i];
-		}
-		else if (array[i] > third && array[i] != second && array[i] != first)
-			third = array[i];
-	}
-	return (third);
-}
-
-/**
- * find_fourth -> Finds the fourth biggest number
- * @array: Int Array
- * @size: Array Size
- * Return: Fourth Biggest Number
- */
-
-int find_fourth(int *array, int size)
-{
-	int i, first = 0, second = 0, third = 0, fourth = 0;
-
-	for (i = 0; i < size; i++)
-	{
-		if (array[i] > first)
-		{
-			fourth = third;
-			third = second;
-			second = first;
-			first = array[i];
-		}
-		else if (array[i] > second && array[i] != first)
-		{
-			fourth = third;
-			third = second;
-			second = array[i];
-		}
-		else if (array[i] > third && array[i] != second && array[i] != first)
-		{
-			fourth = third;
-			third = array[i];
-		}
-		else if (array[i] > fourth && array[i] != third && array[i] != second
-			 && array[i] != first)
-			fourth = array[i];
-	}
-	return (fourth);
-}
-
-/**
- * main -> Generates a random password
- * Return: 0
- */
-
-int main(void)
-{
-	int i, first, second, third, fourth, sum = 0, size = 0;
-	int array[100];
-
+	len = 0;
+	while (usr[len] != '\0')
+		len++;
 	srand(time(NULL));
-	while (sum < 2772)
+	seed = rand();
+	srand(seed);
+	for (i = 0; i < 4; i++)
+		arr[i] = rand();
+	mult = mult_char(usr, len);
+	big = find(arr, 4);
+	key = (mult ^ big);
+	return (key);
+}
+
+/**
+ * main -> Entry point
+ * @argc: Number of arguments
+ * @argv: Arguments
+ * Return: 0 on success, 1 on failure
+ */
+
+int main(int argc, char *argv[])
+{
+	int key;
+
+	if (argc != 2)
 	{
-		array[size] = rand() % 100;
-		sum += array[size];
-		size++;
+		printf("Usage: %s username\n", argv[0]);
+		return (1);
 	}
-	sum -= 2772;
-	array[size - 1] -= sum;
-	first = find_first(array, size);
-	second = find_second(array, size);
-	third = find_third(array, size);
-	fourth = find_fourth(array, size);
-	printf("%c%c%c%c\n", first, second, third, fourth);
+	key = gen_pass(argv[1]);
+	printf("%d\n", key);
 	return (0);
 }
