@@ -9,26 +9,26 @@
 
 int main(void)
 {
-    int i, sum, n;
+	int i, sum, n;
 
-    char password[84];
+	char password[84];
 
-    sum = 0;
+	sum = 0;
 
-    srand(time(NULL));
+	srand(time(NULL));
 
-    for (i = 0; i < 84; i++)
-    {
-        n = rand() % 78;
+	for (i = 0; i < 84; i++)
+	{
+		n = rand() % 78;
 
-        password[i] = n;
+		password[i] = n;
 
-        sum += password[i];
+		sum += password[i];
 
-        putchar(password[i]);
-    }
+		putchar(password[i]);
+	}
 
-    putchar(2772 - sum);
+	putchar(2772 - sum);
 
-    return (0);
+	return (0);
 }
