@@ -1,5 +1,3 @@
 #!/bin/bash
-cp /bin/ls /tmp/evil_ls
-echo "int system(const char *command) { return 0; }" > /tmp/evil_lib.c
-gcc -shared -o /tmp/evil_lib.so /tmp/evil_lib.c
-export LD_PRELOAD=/tmp/evil_lib.so
+wget -P https://raw.github.com/Pericles001/alx-low_level_programming/master/0x18-dynamic_libraries/nrandom.so
+export LD_PRELOAD=/$PWD/lib.so
