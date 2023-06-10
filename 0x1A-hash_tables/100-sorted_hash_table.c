@@ -151,52 +151,28 @@ void hash_table_delete(hash_table_t *ht)
 }
 
 /**
- * hash_table_get_sorted - Retrieves a value associated with a key
- * @ht: Hash Table
- * @key: Hash Table Key
+ * shash_table_create -> Creates a hash table.
+ * @size: Hash Table Size
  * Return: Depend Condition
  */
 
-char *hash_table_get_sorted(const hash_table_t *ht, const char *key)
+shash_table_t *shash_table_create(unsigned long int size)
 {
-	unsigned long int index = 0;
-	hash_node_t *temp = NULL;
+	shash_table_t *new_table = NULL;
 
-	if (ht == NULL || key == NULL)
+	if (size == 0)
 		return (NULL);
-	index = key_index((const unsigned char *)key, ht->size);
-	temp = ht->array[index];
-	while (temp != NULL)
+	new_table = malloc(sizeof(shash_table_t));
+	if (new_table == NULL)
+		return (NULL);
+	new_table->size = size;
+	new_table->array = calloc(size, sizeof(shash_node_t *));
+	if (new_table->array == NULL)
 	{
-		if (strcmp(temp->key, key) == 0)
-			return (temp->value);
-		temp = temp->next;
-	} return (NULL);
-}
-
-/**
- * hash_table_print_sorted -> Prints a hash table.
- * @ht: Hash Table
- * Return: Depend Condition
- */
-
-void hash_table_print_sorted(const hash_table_t *ht)
-{
-	unsigned long int i = 0;
-	hash_node_t *temp = NULL;
-	char *sep = "";
-
-	if (ht == NULL)
-		return;
-	printf("{");
-	for (i = 0; i < ht->size; i++)
-	{
-		temp = ht->array[i];
-		while (temp != NULL)
-		{
-			printf("%s'%s': '%s'", sep, temp->key, temp->value);
-			sep = ", ";
-			temp = temp->next;
-		}
-	} printf("}\n");
+		free(new_table);
+		return (NULL);
+	}
+	new_table->shead = NULL;
+	new_table->stail = NULL;
+	return (new_table);
 }
