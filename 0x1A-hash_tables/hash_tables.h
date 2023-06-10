@@ -83,4 +83,11 @@ char *hash_table_get(const hash_table_t *ht, const char *key);
 void hash_table_print(const hash_table_t *ht);
 void hash_table_delete(hash_table_t *ht);
 
+int hash_table_set(hash_table_t *ht, const char *key, const char *value);
+char *hash_table_get(const hash_table_t *ht, const char *key);
+void hash_table_print(const hash_table_t *ht);
+void hash_table_print_rev(const hash_table_t *ht);
+void hash_table_delete(hash_table_t *ht);
+char *hash_table_get_sorted(const hash_table_t *ht, const char *key);
+
 #endif
